@@ -1,6 +1,6 @@
-FROM python:2.7-alpine
+FROM python:3-alpine
 RUN apk update && \
-    apk add python python-dev libffi-dev gcc make musl-dev py-pip mysql-client
+    apk add libxml2-dev libxslt-dev build-base libffi-dev gcc make musl-dev mysql-client
 
 RUN mkdir -p /opt/CTFd
 COPY . /opt/CTFd
