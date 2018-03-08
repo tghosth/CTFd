@@ -19,6 +19,7 @@ services:
       internal:
     depends_on:
       - ctfd
+  
   ctfd:
     build: .
     restart: always
@@ -38,6 +39,7 @@ services:
       - db
     networks:
       internal:
+  
   db:
     image: mariadb:10.2
     restart: always
@@ -50,7 +52,9 @@ services:
     networks:
         internal:
     # This command is required to set important mariadb defaults
-    command: [mysqld, --character-set-server=utf8mb4, --collation-server=utf8mb4_unicode_ci, --wait_timeout=28800] networks:
+    command: [mysqld, --character-set-server=utf8mb4, --collation-server=utf8mb4_unicode_ci, --wait_timeout=28800]
+
+networks:
     default:
     internal:
         internal: true
